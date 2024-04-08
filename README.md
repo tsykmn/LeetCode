@@ -1,7 +1,8 @@
 # LeetCode
 
-Personal hub to study for <a href = "https://leetcode.com/">LeetCode</a> problems
+Personal hub to self-study for <a href = "https://leetcode.com/">LeetCode</a> problems
 ## Study Group Problems
+Problems to code with my study group
 | Date | # | Title | Difficulty | 
 | --- | --- | --- | --- |
 | 04/13/23 | 36 | <a href = "https://leetcode.com/problems/valid-sudoku/description/?envType=featured-list&envId=top-interview-questions?envType=featured-list&envId=top-interview-questions">Valid Sudoku</a> | Medium |
