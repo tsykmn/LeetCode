@@ -11,6 +11,7 @@ Problems to code with my study group
 ## Resource List
 * <a href = "https://neetcode.io/practice">Neetcode</a>
 * <a href = "https://seanprashad.com/leetcode-patterns/">LeetCode Patterns</a>
+* <a href = "https://www.techinterviewhandbook.org/grind75">Technical Interview Handbook</a>
 
 ## Note
 * <a href = "https://github.com/joshnh/Git-Commands">Git-commands</a>
