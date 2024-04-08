@@ -1,5 +1,6 @@
-# Leetcode
+# LeetCode
 
+Personal hub to study for <a href = "https://leetcode.com/">LeetCode</a> problems
 ## Study Group Problems
 | Date | # | Title | Difficulty | 
 | --- | --- | --- | --- |
