@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class sortByParity {
     public static int[] sortArrayByParity(int[] nums) {
         List<Integer> even = new ArrayList();
@@ -25,11 +22,5 @@ public class sortByParity {
         }
         
         return finalResult;
-    }
-    public static void main(String[] args) {
-        sortByParity check = new sortByParity();
-        int[] nums = {3, 1, 2, 4};
-        int[] ans = check.sortArrayByParity(nums);
-        System.out.println("run");
     }
 }
