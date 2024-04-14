@@ -8,7 +8,7 @@ Problems to code with my study group
 | 04/13/23 | 412 | <a href = "https://leetcode.com/problems/fizz-buzz/description/">Fizz Buzz</a> | Easy
 | 04/13/23 | 905 | [Sort Array By Parity](https://leetcode.com/problems/sort-array-by-parity/description/) | Easy |
 | 04/13/23 | 36 | [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/description/?envType=featured-list&envId=top-interview-questions) | Medium |
-| 04/20/23 | 66 | [Plus One](https://leetcode.com/problems/plus-one/description/)](https://leetcode.com/problems/plus-one/description/) | Easy |
+| 04/20/23 | 66 | [Plus One](https://leetcode.com/problems/plus-one/description/) | Easy |
 
 ## Future
 | # | Title | Difficulty | 
