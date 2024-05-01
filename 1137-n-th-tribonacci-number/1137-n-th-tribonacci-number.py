@@ -25,7 +25,7 @@ class Solution(object):
 
         # Tn+3 = Tn + Tn+1 + Tn+2
         # Tn = Tn+3 - (Tn+1 + Tn+2) --> Tn = Tn-3 + Tn-1 - Tn-2
-        if n in self.dp:
-            return self.dp[n]
-        self.dp[n] = self.tribonacci(n-3) + self.tribonacci(n-2) + self.tribonacci(n-1)
-        return self.dp[n]
+        # if n in self.dp:
+        #     return self.dp[n]
+        # self.dp[n] = self.tribonacci(n-3) + self.tribonacci(n-2) + self.tribonacci(n-1)
+        # return self.dp[n]
