@@ -10,6 +10,7 @@ Problems to code with my study group
 | 04/20/23 | 36 | [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/description/?envType=featured-list&envId=top-interview-questions) | Medium |
 | 04/20/23 | 66 | [Plus One](https://leetcode.com/problems/plus-one/description/) | Easy |
 | 04/20/23 | 1 | [Two Sum](https://leetcode.com/problems/two-sum/description/) | Easy |
+| 05/11/23 | 2160 | [Minimum Sum of Four Digit Number After Splitting Digits](https://leetcode.com/problems/minimum-sum-of-four-digit-number-after-splitting-digits/description/) | Easy
 
 ## Future
 | # | Title | Difficulty | 
