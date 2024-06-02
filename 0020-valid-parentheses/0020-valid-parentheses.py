@@ -49,4 +49,6 @@ class Solution(object):
                     if curr in dist.values() and stack[-1] != opens:
                         return False
                     stack.pop()
-        return True
+        if not stack:
+            return True
+        return False
