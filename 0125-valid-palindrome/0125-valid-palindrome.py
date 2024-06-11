@@ -5,9 +5,9 @@ class Solution(object):
         :rtype: bool
         """
         s = s.lower()
-        s = ''.join(filter(lambda x: x.isalpha() or x.isdigit() or x.isspace(), s))
-        s = s.replace(" ", "")
-        for i in range(len(s)):
-            if s[i] != s[-(i+1)]:
+        words = [i for i in s if i.isalpha() or i.isdigit()]
+        n = len(words)
+        for i in range(n//2):
+            if words[i] != words[n-i-1]:
                 return False
         return True
