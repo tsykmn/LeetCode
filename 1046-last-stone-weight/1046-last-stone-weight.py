@@ -4,8 +4,6 @@ class Solution(object):
         :type stones: List[int]
         :rtype: int
         """
-        if stones == [1]:
-            return 1
         def helper(stone):
             if 1 == len(stone):
                 return stone[0]
