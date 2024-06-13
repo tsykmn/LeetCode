@@ -9,6 +9,8 @@ class Solution(object):
         def helper(stone):
             if 1 == len(stone):
                 return stone[0]
+            elif len(stone) == 0:
+                return 0
             n = len(stone)
             n1 = max(stone)
             stone.remove(n1)
