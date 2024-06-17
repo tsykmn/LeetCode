@@ -9,20 +9,25 @@ class Solution(object):
         :type head: ListNode
         :rtype: bool
         """
+        slow, fast = head, head
 
-        def reverse(lst):
-            prev = None
-            curr = lst
-            while curr:
-                nxt = curr.next
-                curr.next = prev
-                prev = curr
-                curr = nxt
-            return prev
-        rev_lst = reverse(head)
-        while head and rev_lst:
-            if head.val != rev_lst.val:
+        while fast and fast.next:
+            slow = slow.next
+            if not fast.next.next:
+                fast = fast.next
+            else:
+                fast = fast.next.next
+
+        curr, nxt, prev = slow, None, None
+        while curr:
+            nxt = curr.next
+            curr.next = prev
+            prev = curr
+            curr = nxt
+        rev = fast
+        while head and rev:
+            if head.val != rev.val:
                 return False
             head = head.next
-            rev_lst = rev_lst.next
+            rev = rev.next
         return True
