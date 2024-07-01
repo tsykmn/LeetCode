@@ -6,10 +6,7 @@ class Solution(object):
         """
         if n == 1:
             return True
-        def helper(curr, target):
-            if curr > target:
-                return False
-            elif curr == target:
-                return True
-            return helper(curr*2, target)
-        return helper(2, n)
+        elif n%2 == 1:
+            return False
+        else:
+            return self.isPowerOfTwo(n//2)
