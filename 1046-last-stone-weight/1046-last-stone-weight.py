@@ -4,34 +4,29 @@ class Solution(object):
         :type stones: List[int]
         :rtype: int
         """
-        # stones.sort()
-        # while stones:
-        #     s1 = stones.pop()
-        #     if not stones:
-        #         return s1
-        #     s2 = stones.pop()
-        #     if s1 > s2:
-        #         n = len(stones)
-        #         for i in range(n+1):
-        #             if i == n or stones[i] >= s1-s2:
-        #                 stones.insert(i, s1-s2)
-        #                 break
-        # return 0
-        # my solution
-        # make a helper function
+        # get the two heaviest stones and smash them together
+        # 2 conditionals
+        # if x == y, remove them from stones
+        # if x != y, remove x and change y to y - x
+
         def helper(stone):
-        # if there is only 1 stone or none remaining
-            if 1 == len(stone):
-                return stone[0]
-            elif len(stone) == 0:
-                return 0
             n = len(stone)
-            n1 = max(stone) # get the 1st biggest number
-            stone.remove(n1)
-            n2 = max(stone) # get the 2nd biggest number
-            stone.remove(n2)
-            if n1 != n2: # add if not same
-                stone.append(abs(n1-n2))
+
+            # if one stone remains
+            if n == 1:
+                return stone[0]
+            # no stone remaining
+            elif n < 1:
+                return 0
+
+            # get two heaviest stones
+            s1 = max(stone)
+            stone.remove(s1)
+            s2 = max(stone)
+            stone.remove(s2)
+
+            if s1 != s2:
+                stone.append(abs(s1 - s2))
             return helper(stone)
+
         return helper(stones)
-        
