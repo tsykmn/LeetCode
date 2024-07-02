@@ -5,35 +5,19 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
+        n1 = len(s)
+        n2 = len(t)
 
-        # More efficient
-        nT = len(t)
-        nS = len(s)
-
-        if nS > nT:
+        if n1 > n2:
             return False
-        elif nS == 0:
+        elif n1 == 0:
             return True
-        subsequence = 0
-        for i in range(nT):
-            if subsequence <= (nS-1):
-                if s[subsequence] == t[i]:
-                    subsequence += 1
-        return subsequence == nS
         
-        # nLst = len(t)
-        # nSeq = len(s)
-        # curr = []
-        # n = 0
-        # for i in range(nSeq):
-        #     seq = s[i]
-        #     added = False
-        #     for j in range(n, nLst):
-        #         if seq == t[j] and not added:
-        #             curr.append(t[j])
-        #             n = j + 1
-        #             added = True
-        #     if not curr:
-        #         return False
-        # if ''.join(curr) == s:
-        #     return True
+        pt1 = 0
+        pt2 = 0
+
+        while pt1 <= len(s) and pt2 < len(t):
+            if s[pt1] == t[pt2]:
+                pt1 += 1
+            pt2 += 1
+        return pt1 == len(s)
