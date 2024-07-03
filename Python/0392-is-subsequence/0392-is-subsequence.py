@@ -5,19 +5,19 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
-        nLst = len(t)
-        nSeq = len(s)
-        curr = []
-        n = 0
-        for i in range(nSeq):
-            seq = s[i]
-            added = False
-            for j in range(n, nLst):
-                if seq == t[j] and not added:
-                    curr.append(t[j])
-                    n = j + 1
-                    added = True
-            if not curr:
-                return False
-        if ''.join(curr) == s:
+        n1 = len(s)
+        n2 = len(t)
+
+        if n1 > n2:
+            return False
+        elif n1 == 0:
             return True
+        
+        pt1 = 0
+        pt2 = 0
+
+        while pt1 <= len(s) and pt2 < len(t):
+            if s[pt1] == t[pt2]:
+                pt1 += 1
+            pt2 += 1
+        return pt1 == len(s)
