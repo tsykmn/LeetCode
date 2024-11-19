@@ -11,9 +11,11 @@ class Solution(object):
             if s[i] in dist.values():
                 opens.append(s[i])
             if s[i] in dist:
+                # unmatched pairing cases
                 if not opens:
                     return False
                 p = opens.pop()
                 if dist[s[i]] != p:
                     return False
+        # no open remaining if closed matched
         return len(opens) == 0
