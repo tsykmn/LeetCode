@@ -4,10 +4,10 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        s = s.lower()
-        words = [i for i in s if i.isalpha() or i.isdigit()]
-        n = len(words)
-        for i in range(n//2):
-            if words[i] != words[n-i-1]:
-                return False
-        return True
+        # palindrome: characters read same forward and backward
+        letters = [w for w in s if (w.isalpha() or w.isnumeric())]
+        word = ""
+        for l in letters:
+            word += l
+        word = word.lower()
+        return word == word[::-1]

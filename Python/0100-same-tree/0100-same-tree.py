@@ -7,19 +7,19 @@
 class Solution(object):
     def isSameTree(self, p, q):
         """
-        :type p: TreeNode
-        :type q: TreeNode
+        :type p: Optional[TreeNode]
+        :type q: Optional[TreeNode]
         :rtype: bool
         """
-        # end of nodes
         if not p and not q:
             return True
-        # if one tree has more nodes than the other; i.e. p or q not empty
-        elif not p or not q:
+        elif not p:
             return False
-        # not same nodes
+        elif not q:
+            return False
         elif p.val != q.val:
             return False
-        left = self.isSameTree(p.left, q.left) # continue to check left
-        right = self.isSameTree(p.right, q.right)
-        return left and right
+        else:
+            left = self.isSameTree(p.left, q.left)
+            right = self.isSameTree(p.right, q.right)
+            return left and right

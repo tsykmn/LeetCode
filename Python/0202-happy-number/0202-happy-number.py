@@ -4,11 +4,15 @@ class Solution(object):
         :type n: int
         :rtype: bool
         """
-        s = set()
-        while n != 1:
-            if n in s:
+        def isValid(num):
+            if int(num) == 1:
+                return True
+            elif (n % 2) == 0:
                 return False
-            last = n % 10
-            s.add(last)
-            n = sum([int(i)**2 for i in str(n)])
-        return True
+            elif n == 3:
+                return False
+            total = 0
+            for i in str(num):
+                total += (int(i)**2)
+            return isValid(total)
+        return isValid(n)

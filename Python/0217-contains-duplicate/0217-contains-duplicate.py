@@ -4,10 +4,9 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        dist = {}
+        s = set()
         for i in nums:
-            if i in dist:
+            if i in s:
                 return True
-            else:
-                dist[i] = i
+            s.add(i)
         return False

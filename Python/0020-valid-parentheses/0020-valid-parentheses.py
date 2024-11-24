@@ -4,51 +4,18 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        dist = {'(': ')',
-                '{': '}',
-                '[': ']'}
-        dist2 = {
-            ')': '(',
-            '}': '{',
-            ']': '['
-        }
-
-        stack = []
+        dist = {')': '(', '}': '{', ']': '['}
+        opens = []
         n = len(s)
-        # opening = []
-        # closing = []
-
-        # def getSigns():
-        #     for i in range(n):
-        #         if s[i] in dist.keys():
-        #             opening.append(s[i])
-        #         else:
-        #             closing.append(s[i])
-        # getSigns()
-
-        # for i in opening:
-        #     close = dist.get(i)
-        #     if close in closing:
-        #         opening.pop()
-        #         closing.remove(close)
-        #     else:
-        #         return False
-        # if not opening and not closing:
-        #     return True
-        # return False
-
         for i in range(n):
-            curr = s[i]
-            if curr in dist.keys():
-                stack.append(curr)
-            if curr in dist.values():
-                if not stack:
+            if s[i] in dist.values():
+                opens.append(s[i])
+            if s[i] in dist:
+                # unmatched pairing cases
+                if not opens:
                     return False
-                else:
-                    opens = dist2.get(curr)
-                    if curr in dist.values() and stack[-1] != opens:
-                        return False
-                    stack.pop()
-        if not stack:
-            return True
-        return False
+                p = opens.pop()
+                if dist[s[i]] != p:
+                    return False
+        # no open remaining if closed matched
+        return len(opens) == 0
