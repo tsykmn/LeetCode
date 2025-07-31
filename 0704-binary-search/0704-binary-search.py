@@ -5,8 +5,16 @@ class Solution(object):
         :type target: int
         :rtype: int
         """
-        n = len(nums)
-        for i in range(n):
-            if nums[i] == target:
-                return i
+
+        s = 0
+        e = len(nums)-1
+        while s <= e:
+            mid = (e - s)//2 + s
+
+            if nums[mid] == target:
+                return mid
+            elif nums[mid] > target:
+                e = mid-1
+            elif nums[mid] < target:
+                s = mid+1
         return -1
