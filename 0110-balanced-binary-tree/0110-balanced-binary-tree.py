@@ -10,12 +10,17 @@ class Solution(object):
         :type root: Optional[TreeNode]
         :rtype: bool
         """
-        def dfs(root, num):
-            if not root:
+
+        def dfs(tree):
+            if not tree:
                 return 0
-            right = dfs(root.right, num+1)
-            left = dfs(root.left, num+1)
-            if right < 0 or left < 0 or abs(left-right) > 1:
+            
+            right = dfs(tree.right)
+            left = dfs(tree.left)
+
+            if abs(right-left) > 1 or left < 0 or right < 0:
                 return -1
+
             return max(right, left) + 1
-        return dfs(root, 1) >= 0
+
+        return dfs(root) >= 0
