@@ -11,7 +11,7 @@ class Solution(object):
 
         for right in range(n):
             while s[right] in seen:
-                seen.remove(s[right])
+                seen.remove(s[left])
                 left += 1
             seen.add(s[right])
             longest = max(longest, len(seen))
