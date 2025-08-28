@@ -20,7 +20,7 @@ class Solution(object):
 
         old_to_new = {}
 
-        def clone(tree):
+        def dfs(tree):
             if tree in old_to_new:
                 return old_to_new[tree]
             
@@ -31,5 +31,18 @@ class Solution(object):
 
             return old_to_new[tree]
         
-        return clone(node)
+        bfs_cloned = {node: Node(node.val)}
+        queue = [node]
+
+        def bfs(tree):
+            while queue:
+                cur = queue.pop(0)
+                for neigh in cur.neighbors:
+                    if neigh not in bfs_cloned:
+                        bfs_cloned[neigh] = Node(neigh.val)
+                        queue.append(neigh)
+                    bfs_cloned[cur].neighbors.append(bfs_cloned[neigh])
+            return bfs_cloned[tree]
+
+        return bfs(node)
         
