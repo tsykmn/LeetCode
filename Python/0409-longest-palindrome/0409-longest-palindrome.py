@@ -4,19 +4,16 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        n = len(s)
-        size = 0
-        chars = {}
-
-        if s == s[::-1]:
-            return n
+        words = {}
 
         for i in s:
-            if chars.get(i):
-                chars[i] += 1
-                if chars[i] % 2 == 0:
-                    size += 2
-            else:
-                chars[i] = 1
+            words[i] = words.get(i, 0)+1
+        
+        total = 0
 
-        return size + 1 if n - size != 0 else size
+        for v in words.values():
+            if v % 2 == 1:
+                total += (v-1)
+            else:
+                total += v
+        return total+1 if total < len(s) else total

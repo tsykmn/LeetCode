@@ -4,9 +4,9 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        s = set()
-        for i in nums:
-            if i in s:
+        nCount = Counter(nums)
+
+        for i in nCount.values():
+            if i >= 2:
                 return True
-            s.add(i)
         return False

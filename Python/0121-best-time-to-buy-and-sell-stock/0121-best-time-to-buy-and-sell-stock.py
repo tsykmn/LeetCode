@@ -5,12 +5,10 @@ class Solution(object):
         :rtype: int
         """
         n = len(prices)
-        buy, profit = prices[0], 0
-
-        for i in range(1, len(prices)):
-            if prices[i] < buy:
-                buy = prices[i]
-            if (prices[i] - buy) > profit:
-                profit = prices[i] - buy
-
+        p, profit = prices[0], 0
+        
+        for i in range(n):
+            if p > prices[i]:
+                p=prices[i]
+            profit = max(profit, prices[i]-p)
         return profit

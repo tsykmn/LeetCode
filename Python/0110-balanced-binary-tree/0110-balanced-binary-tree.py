@@ -10,20 +10,17 @@ class Solution(object):
         :type root: Optional[TreeNode]
         :rtype: bool
         """
-        # height-balanced = depth never differs more than 1
 
         def dfs(tree):
-
             if not tree:
                 return 0
-            left = dfs(tree.left)
+            
             right = dfs(tree.right)
-            if (left==-1) or (right==-1):
-                return -1
-            if abs(left - right) > 1:
+            left = dfs(tree.left)
+
+            if abs(right-left) > 1 or left < 0 or right < 0:
                 return -1
 
-            return max(left, right) + 1
+            return max(right, left) + 1
 
-        height = dfs(root)
-        return height != -1
+        return dfs(root) >= 0

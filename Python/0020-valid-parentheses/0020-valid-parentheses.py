@@ -4,18 +4,17 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        dist = {')': '(', '}': '{', ']': '['}
-        opens = []
-        n = len(s)
-        for i in range(n):
-            if s[i] in dist.values():
-                opens.append(s[i])
-            if s[i] in dist:
-                # unmatched pairing cases
-                if not opens:
+        brackets = {'(':')', '{':'}', '[':']'}
+        open = []
+        for b in s:
+            if b in brackets.keys():
+                open.append(b)
+            # elif b in brackets.keys() and open != []:
+            #     return False
+            elif b in brackets.values() and open == []:
+                return False
+            elif b in brackets.values():
+                last = open.pop()
+                if brackets[last] != b:
                     return False
-                p = opens.pop()
-                if dist[s[i]] != p:
-                    return False
-        # no open remaining if closed matched
-        return len(opens) == 0
+        return len(open) == 0

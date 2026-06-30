@@ -7,8 +7,8 @@ class Solution(object):
         """
         n = len(nums)
         for i in range(n):
-            for j in range(i+1, n):
-                total = nums[i] + nums[j]
+            for j in range(i, n):
+                total = nums[j] + nums[i]
                 if total == target:
-                    return [i, j]
-        return []
+                    return [j, i]
+        return 0

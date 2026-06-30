@@ -7,11 +7,13 @@
 class Solution(object):
     def invertTree(self, root):
         """
-        :type root: TreeNode
-        :rtype: TreeNode
+        :type root: Optional[TreeNode]
+        :rtype: Optional[TreeNode]
         """
+        if not root:
+            return root
+
         if root:
-            left = root.left
-            root.left = self.invertTree(root.right)
-            root.right = self.invertTree(left)
+            root.right, root.left = root.left, root.right
+        root.right, root.left = self.invertTree(root.right), self.invertTree(root.left)
         return root

@@ -7,20 +7,27 @@
 class Solution(object):
     def levelOrder(self, root):
         """
-        :type root: TreeNode
+        :type root: Optional[TreeNode]
         :rtype: List[List[int]]
         """
-        # keep track of the nodes from each level
-        levels = []
-        def helper(node, lvl):
-            if not node: # check if node empty
-                return
-            if len(levels) == lvl:
-                levels.append([])
+        # keep  track of nodes using levels
+        # if same level, add the nodes in the list
+        # continue searching on left and right with a level count
+        # return the tracking
+
+        nodes = []
+
+        def dfs(tree, lvl):
+            if not tree:
+                return 
             
-            helper(node.left, lvl+1)
-            levels[lvl].append(node.val)
-            helper(node.right, lvl+1)
+            if len(nodes) == lvl:
+                nodes.append([])
             
-        helper(root, 0)
-        return levels
+            # nodes[lvl].append(tree.val)
+            nodes[lvl].append(tree.val)
+            dfs(tree.left, lvl+1)
+            dfs(tree.right, lvl+1)
+
+        dfs(root, 0)
+        return nodes

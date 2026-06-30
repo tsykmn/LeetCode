@@ -10,15 +10,23 @@ class Solution(object):
         :type list2: Optional[ListNode]
         :rtype: Optional[ListNode]
         """
-        p1, p2 = list1, list2
-        lst = ListNode(None)
-        curr = lst
-        while p1 and p2:
-            if p1.val <= p2.val:
-                curr.next = ListNode(p1.val)
-                p1, curr = p1.next, curr.next
-            elif p1.val > p2.val:
-                curr.next = ListNode(p2.val)
-                p2, curr = p2.next, curr.next
-        curr.next = p1 or p2
-        return lst.next
+        node = ListNode(-1)
+        current = node
+
+        while list1 and list2:
+            if list1.val == list2.val:
+                node.next = ListNode(list1.val, ListNode(list2.val))
+                node = node.next.next
+                list1 = list1.next
+                list2 = list2.next
+            elif list1.val < list2.val:
+                node.next = ListNode(list1.val)
+                node = node.next
+                list1 = list1.next
+            elif list1.val > list2.val:
+                node.next = ListNode(list2.val)
+                node = node.next
+                list2 = list2.next
+        
+        node.next = list1 if list1 else list2
+        return current.next

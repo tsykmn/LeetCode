@@ -6,13 +6,15 @@
 class Solution(object):
     def middleNode(self, head):
         """
-        :type head: ListNode
-        :rtype: ListNode
+        :type head: Optional[ListNode]
+        :rtype: Optional[ListNode]
         """
-        # pointers to traverse the lst
-        slow = head
-        fast = head
-        while fast and fast.next:
-            slow = head.next
-            fast = fast.next.next
+        slow, fast = head, head
+
+        while fast is not None:
+            if fast.next is None:
+                fast = fast.next
+            else:
+                fast = fast.next.next
+                slow = slow.next
         return slow
